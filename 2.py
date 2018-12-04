@@ -1,4 +1,4 @@
-file = open('2.txt', 'r')
+file = open('2.txt')
 ids = [id.strip() for id in file]
 
 # part 1 = 5704

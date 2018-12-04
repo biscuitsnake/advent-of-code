@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 
-file = open('4.txt', 'r')
+file = open('4.txt')
 records = [line.strip() for line in file]
 
 sortedRecords = sorted(records, key=lambda x: datetime.strptime(x[1:17], '%Y-%m-%d %H:%M'), reverse=False)
@@ -31,8 +31,6 @@ for record in sortedRecords:
             for i in range(start, min):
                 shifts[guard][i] += 1
     
-
-
 mostsleep = 0
 
 for i in shifts:    

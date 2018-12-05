@@ -5,7 +5,7 @@ import numpy
 file = open('3.txt', 'r')
 claims = [id.strip() for id in file]
 
-data = [[]]*1347
+data = [[]] * 1347
 ind = 0
 
 for i in claims:
@@ -39,7 +39,7 @@ for i in data:
         for k in range(posy, (posy + length)):
             fabric[j, k] += 1
 
-print (numpy.count_nonzero(fabric > 1))
+print(numpy.count_nonzero(fabric > 1))
 
 # part 2 = 877
 
@@ -57,4 +57,4 @@ for i in data:
             if fabric[j, k] == 1:
                 valid += 1
     if valid == size:
-        print (i[2])
+        print(i[2])

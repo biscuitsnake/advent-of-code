@@ -1,9 +1,11 @@
 with open('1.txt') as file:
     lines = file.read().splitlines()
 
+lines = list(map(int, lines))
+
 # part 1 = 470
 
-print (sum(map(int, lines)))
+print(sum(map(int, lines)))
 
 # part 2 = 790
 
@@ -13,14 +15,11 @@ freqs = []
 found = False
 i = 0
 
-# slow af, 6am code to improve later
-# use ints instead of strings
-
 while not found:
     value = int(lines[i])
     total += value
     if total in freqs:
-        print (total)
+        print(total)
         found = True
     else:
         freqs.append(total)

@@ -21,7 +21,7 @@ for id in ids:
             threes += 1
             break
 
-print (twos * threes)
+print(twos * threes)
 
 # part 2 = umdryabviapkozistwcnihjqx
 
@@ -35,5 +35,5 @@ for i in ids:
                     break
         if error == 1:
             # does not print actual answer
-            print (i)
-            print (j)
+            print(i)
+            print(j)

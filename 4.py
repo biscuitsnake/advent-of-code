@@ -6,7 +6,7 @@ records = [line.strip() for line in file]
 
 sortedRecords = sorted(records, key=lambda x: datetime.strptime(x[1:17], '%Y-%m-%d %H:%M'), reverse=False)
 
-#part 1 = 99911
+# part 1 = 99911
 
 shifts = {}
 
@@ -22,7 +22,7 @@ for record in sortedRecords:
         guard = int(re.search("(#\d+)", record)[0][1:])
 
         if guard not in shifts:
-            shifts[guard] = [0]*60
+            shifts[guard] = [0] * 60
     else:
         if 'falls asleep' in record:
             start = min
@@ -40,9 +40,9 @@ for i in shifts:
     if sleep > mostsleep:
         mostsleep = sleep
         id = i
-        maximum =max((v, i) for i, v in enumerate(l))[1]
+        maximum = max((v, i) for i, v in enumerate(l))[1]
 
-print (id * maximum)
+print(id * maximum)
 
 # part 2 = 65854
 
@@ -56,4 +56,4 @@ for i in shifts:
         id = i
         minute = shifts[i].index(mostestsleep)
 
-print (id * minute)
+print(id * minute)

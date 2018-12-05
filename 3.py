@@ -13,19 +13,19 @@ for i in claims:
     b = a[1].split(':')
 
     id = a[0].strip('#')
-    pos = b[0].strip().split(',')    
+    pos = b[0].strip().split(',')
     size = b[1].strip().split('x')
 
     pos = [int(j) for j in pos]
     size = [int(k) for k in size]
 
     data[ind] = [pos, size, id]
-    
+
     ind += 1
 
 # assumes fabric is 1000x1000 or less
 
-fabric = numpy.zeros((1000,1000))
+fabric = numpy.zeros((1000, 1000))
 
 # part 1 = 114946
 
@@ -34,13 +34,13 @@ for i in data:
     posy = i[0][1]
     width = i[1][0]
     length = i[1][1]
-  
+
     for j in range(posx, (posx + width)):
         for k in range(posy, (posy + length)):
-            fabric[j,k] += 1
-       
+            fabric[j, k] += 1
+
 print (numpy.count_nonzero(fabric > 1))
-                       
+
 # part 2 = 877
 
 for i in data:
@@ -51,11 +51,10 @@ for i in data:
 
     valid = 0
     size = width * length
-    
+
     for j in range(posx, (posx + width)):
         for k in range(posy, (posy + length)):
-            if fabric[j,k] == 1:
+            if fabric[j, k] == 1:
                 valid += 1
-    if (valid == size):
+    if valid == size:
         print (i[2])
-       

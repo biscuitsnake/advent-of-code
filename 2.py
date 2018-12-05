@@ -22,14 +22,14 @@ for id in ids:
             break
 
 print (twos * threes)
-        
+
 # part 2 = umdryabviapkozistwcnihjqx
 
 for i in ids:
     for j in ids:
         error = 0
         for k in range(26):
-            if (i[k] != j[k]):
+            if i[k] != j[k]:
                 error += 1
                 if error > 1:
                     break
@@ -37,13 +37,3 @@ for i in ids:
             # does not print actual answer
             print (i)
             print (j)
-            
-        
-
-
-
-
-
-
-
-

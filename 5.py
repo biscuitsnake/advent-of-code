@@ -10,10 +10,10 @@ reaction = True
 totalDes = 0
 
 while reaction:
-    destroyed = False    
+    destroyed = False
     i = 0
     r = True
-    
+
     while r:
         f = polymer[i]
         s = polymer[i+1]
@@ -22,7 +22,7 @@ while reaction:
             destroyed = True
             totalDes += 2
         i += 1
-        if (i >= (len(polymer)) - 1):
+        if i >= (len(polymer)) - 1:
             r = False
 
     if not destroyed:
@@ -42,10 +42,10 @@ for letter in string.ascii_lowercase:
     totalDes = 0
 
     while reaction:
-        destroyed = False    
+        destroyed = False
         i = 0
         r = True
-    
+
         while r:
             f = new_polymer[i]
             s = new_polymer[i+1]
@@ -61,21 +61,4 @@ for letter in string.ascii_lowercase:
             types[unit] = (len(new_polymer))
             reaction = False
 
-print (min(types.values())) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-        
-
-    
+print (min(types.values()))

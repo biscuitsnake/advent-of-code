@@ -1,4 +1,4 @@
- with open('1.txt') as file:
+with open('1.txt') as file:
     lines = file.read().splitlines()
 
 # part 1 = 470
@@ -25,6 +25,5 @@ while not found:
     else:
         freqs.append(total)
     i += 1
-    if (i==1014):
+    if i == 1014:
         i = 0
-

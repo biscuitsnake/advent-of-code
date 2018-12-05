@@ -10,37 +10,37 @@ sortedRecords = sorted(records, key=lambda x: datetime.strptime(x[1:17], '%Y-%m-
 
 shifts = {}
 
-for record in sortedRecords:    
+for record in sortedRecords:
     min = int(re.search("(:\d+)", record)[0][1:])
-    
+
     if 'shift' in record:
         start = 0
-        
+
         if int(re.search("(\d+:)", record)[0][:-1]) == 0:
             start = min
 
         guard = int(re.search("(#\d+)", record)[0][1:])
-        
+
         if guard not in shifts:
             shifts[guard] = [0]*60
-    else:        
+    else:
         if 'falls asleep' in record:
             start = min
 
         if 'wakes up' in record:
             for i in range(start, min):
                 shifts[guard][i] += 1
-    
+
 mostsleep = 0
 
-for i in shifts:    
+for i in shifts:
     l = shifts[i]
     sleep = sum(l)
-    
-    if sleep > mostsleep:        
+
+    if sleep > mostsleep:
         mostsleep = sleep
         id = i
-        maximum =  max((v, i) for i, v in enumerate(l))[1]
+        maximum =max((v, i) for i, v in enumerate(l))[1]
 
 print (id * maximum)
 
@@ -50,11 +50,10 @@ mostestsleep = 0
 
 for i in shifts:
     sleep = max(shifts[i])
-    
+
     if sleep > mostestsleep:
         mostestsleep = sleep
         id = i
         minute = shifts[i].index(mostestsleep)
 
 print (id * minute)
-    

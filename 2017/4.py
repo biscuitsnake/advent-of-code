@@ -1,4 +1,4 @@
-file = open("4.txt.")
+file = open("5.txt.")
 
 ###PART 1###
 
@@ -16,7 +16,7 @@ print (validPasses)
 
 validPasses = 0
 
-for line in open("4.txt."):
+for line in open("5.txt."):
     line = line.strip("\n")
     words = line.split(" ")
     valid = True

@@ -41,9 +41,8 @@ def run(program, id, pointer):
                 out = program[pointer+1]
             else:
                 out = program[program[pointer + 1]]
-            if out != 0:
-                return out, pointer
             pointer += 2
+            return out, pointer, program[:]
         if op == 5:
             parameters = get_params(2, pointer, program, intcode)
             if parameters[0] != 0:
@@ -70,26 +69,29 @@ def run(program, id, pointer):
             else:
                 program[program[pointer+3]] = 0
             pointer += 4
-    return -1, pointer
+    return -1, pointer, program[:]
 
 
 def amplifier(program, phase):
     s = 0
     for i in phase:
-        s, p = run(program[:], [i, s], 0)
+        s, p, pro = run(program[:], [i, s], 0)
+        del p, pro
     return s
 
 
 def amplifier2(program, phase):
     s = 0
-    pointers = [0, 0, 0, 0, 0]
-    for i in phase:
-        s, pointers[i-5] = run(program[:], [i, s], 0)
     m = 0
+    pointers = [0, 0, 0, 0, 0]
+    programs = [program.copy() for _ in range(5)]
+    for i in phase:
+        s, pointers[m % 5], programs[m % 5] = run(programs[m % 5], [i, s], pointers[m % 5])
+        m += 1
     last = 0
     while True:
-        s, pointers[m % 5] = run(program[:], [s], pointers[m % 5])
-        if m == 4:
+        s, pointers[m % 5], programs[m % 5] = run(programs[m % 5], [s], pointers[m % 5])
+        if (m % 5) == 4:
             last = s
         m += 1
         if s == -1:
@@ -104,7 +106,7 @@ for p in itertools.permutations(range(5)):
         signal = val
 print(signal)
 
-# Part 2 =
+# Part 2 = 34579864
 signal = 0
 for p in itertools.permutations(range(5, 10)):
     val = amplifier2(program[:], p)

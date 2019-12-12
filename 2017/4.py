@@ -1,4 +1,4 @@
-file = open("5.txt.")
+file = open("4.txt.")
 
 ###PART 1###
 

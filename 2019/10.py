@@ -37,7 +37,7 @@ for asteroid in asteroids.keys():
 for ang in dists:
     dists[ang] = sorted(dists[ang], key=lambda x: x[1])
 dists = {key: dists[key] for key in sorted(dists.keys())}
-print(dists)
+#print(dists)
 
 for i in range(201):
     idx = i % len(dists)

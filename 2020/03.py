@@ -1,17 +1,15 @@
-import numpy as np
-
 puzzle = [list(i.strip()) for i in open("03.txt").readlines()]
-h = 7*len(puzzle)
-m = np.array([np.array(l * h) for l in puzzle]) # build largest map beforehand for speed
+L = len(puzzle)
+W = len(puzzle[0])
 
 
 def traverse(right, down):
     trees = 0
     y, x = 0, 0
-    while y < len(puzzle) - 1:
+    while y < L - 1:
         x += right
         y += down
-        if m[y, x] == '#':
+        if puzzle[y][x % W] == '#':
             trees += 1
     return trees
 

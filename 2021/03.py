@@ -2,11 +2,11 @@ from collections import Counter
 
 puzzle = [i.strip() for i in open("03.txt").readlines()]
 lp = len(puzzle)
+ld = len(puzzle[0])
 
 # Part 1:
-
 gr = ""
-for i in range(len(puzzle[0])):
+for i in range(ld):
     c1 = sum([int(j[i]) for j in puzzle])
     if c1 > lp//2:
         gr += "1"
@@ -14,8 +14,7 @@ for i in range(len(puzzle[0])):
         gr += "0"
 
 gr = int(gr, 2)
-er = int("1"*len(puzzle[0]), 2) ^ gr
-
+er = int("1"*ld, 2) ^ gr
 print(gr*er)
 
 # Part 2:
@@ -26,10 +25,7 @@ def rating(diagnostic, oxygen, ind):
     if not oxygen:
         mcv = mcv ^ 1
     if c[0] == c[1]:
-        if oxygen:
-            mcv = 1
-        else:
-            mcv = 0
+        mcv = oxygen * 1
 
     diagnostic = [n for n in diagnostic if n[ind] == str(mcv)]
 
@@ -40,5 +36,4 @@ def rating(diagnostic, oxygen, ind):
 
 ogr = rating(puzzle, True, 0)
 csr = rating(puzzle, False, 0)
-
 print(int(ogr, 2) * int(csr, 2))

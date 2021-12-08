@@ -16,11 +16,11 @@ m2 = mean(puzzle)
 m = [floor(m2), ceil(m2)]
 fuel = [0, 0]
 
-def crab(n):
+def cr(n):
     return n*(n + 1) // 2
 
 for i in puzzle:
-    fuel[0] += crab(abs(i - m[0]))
-    fuel[1] += crab(abs(i - m[1]))
+    fuel[0] += cr(abs(i - m[0]))
+    fuel[1] += cr(abs(i - m[1]))
 
 print(min(fuel))

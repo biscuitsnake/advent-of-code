@@ -5,7 +5,6 @@ for fish in puzzle:
     states[fish] += 1
 
 for day in range(1, 257):
-    pass
     zeros = states[0]
     states[0] = 0
     for i in range(1, 9):

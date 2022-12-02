@@ -42,7 +42,6 @@ func count() []int {
 	}
 	sort.Ints(calories)
 	return calories
-
 }
 
 func main() {

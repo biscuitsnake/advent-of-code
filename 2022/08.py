@@ -21,7 +21,7 @@ for i, row in enumerate(lines):
     for j, tree in enumerate(row):
         forest[(i,j)] = False
 
-        up = [x[j] for x in lines[0:i]]# rev
+        up = [x[j] for x in lines[0:i]]
         down = [x[j] for x in lines[i+1::]]
         left = row[0:j]# rev
         right = row[j+1:w]

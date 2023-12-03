@@ -16,7 +16,7 @@ fn puzzle(part2: bool) -> Result<i32, std::io::Error> {
         ("nine", "9"),
     ];
 
-    let file = File::open("01.txt")?;
+    let file = File::open("../../01.txt")?;
     let reader = BufReader::new(file);
 
     for i in reader.lines() {
